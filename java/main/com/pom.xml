@@ -6,7 +6,7 @@
     <version>1.0</version>
     <packaging>jar</packaging>
     <name>Spring Boot Angular Application</name>
-    
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -38,6 +38,11 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-autoconfigure</artifactId>
         <version>2.1.6.RELEASE</version>
+      </dependency>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.17</version>
       </dependency>
     </dependencies>
 

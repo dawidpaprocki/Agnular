@@ -7,12 +7,15 @@ import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserService } from './service/user.service';
+import { UserMapListComponent } from './user-map-list/user-map-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    UserFormComponent
+    UserMapListComponent,
+    UserFormComponent,
+    UserMapListComponent
   ],
   imports: [
     BrowserModule,

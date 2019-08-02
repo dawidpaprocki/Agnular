@@ -15,6 +15,16 @@ export class UserListComponent implements OnInit {
 
   }
 
+  delete(user) {
+    this.userService.delete(user.id).subscribe(
+      () => console.log('employee deleted with id: ' + user.id),
+      (err) => console.log('error: ' + err)
+    );
+    const index = this.users.indexOf(user);
+    this.users.splice(index, 1);
+
+  }
+
   ngOnInit() {
     this.userService.findAll().subscribe(data => {
       this.users = data;
