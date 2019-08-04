@@ -1,43 +1,21 @@
 package application.entities;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
-public class User {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private final String name;
-    private final String email;
-    
-    public User() {
-        this.name = "";
-        this.email = "";
-    }
-    
-    public User(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
+@Data
+@NoArgsConstructor
+public class User extends BaseModel {
+   private String LastName;
+   private Long PESEL;
+   private Long PhoneNumber;
+   private String Email;
+   private String StartContact;
+   private String EndContact;
 
-    public long getId() {
-        return id;
-    }
-    
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-    
-    @Override
-    public String toString() {
-        return "User{" + "id=" + id + ", name=" + name + ", email=" + email + '}';
-    }
 }
