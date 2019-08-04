@@ -5,17 +5,16 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import java.util.Date;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @NoArgsConstructor
-public class User extends BaseModel {
-   private String LastName;
-   private Long PESEL;
-   private Long PhoneNumber;
-   private String Email;
-   private Date StartContact;
-   private Date EndContact;
+public class UserDTO extends BaseModel {
+  private String LastName;
+  private Long PESEL;
+  private Long PhoneNumber;
+  private String Email;
+  private String StartContact;
+  private String EndContact;
 }

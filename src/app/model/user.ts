@@ -3,9 +3,9 @@ export class User {
   name: string;
   lastName: string;
   email: string;
-  StartContact: string;
-  EndContact: string;
-  PESEL: number;
-  PhoneNumber: number;
+  startContact: string;
+  endContact: string;
+  pesel: number;
+  phoneNumber: number;
 
 }

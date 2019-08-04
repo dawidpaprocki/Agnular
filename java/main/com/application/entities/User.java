@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import java.util.Date;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
@@ -15,7 +16,6 @@ public class User extends BaseModel {
    private Long PESEL;
    private Long PhoneNumber;
    private String Email;
-   private String StartContact;
-   private String EndContact;
-
+   private Date StartContact;
+   private Date EndContact;
 }

@@ -27,6 +27,35 @@
             <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div>
           </div>
 
+          <div class="form-group">
+            <label for="pesel">PESEL</label>
+            <input type="text" [(ngModel)]="user.pesel" class="form-control" id="pesel" name="pesel"
+                   placeholder="Enter your pesel number"
+                   required #pesel="ngModel">
+            <div [hidden]="!pesel.pristine" class="alert alert-danger">PESEL is required</div>
+          </div>
+
+          <div class="form-group">
+            <label for="phoneNumber">PESEL</label>
+            <input type="text" [(ngModel)]="user.phoneNumber" class="form-control" id="phoneNumber" name="phoneNumber"
+                   placeholder="Enter your phone number number"
+                   required #phoneNumber="ngModel">
+            <div [hidden]="!phoneNumber.pristine" class="alert alert-danger">Phone number is required</div>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <input matInput  [(ngModel)]="user.startContact" [matDatepicker]="picker" id="date" name="date"
+                     placeholder="Choose a date"
+                     required #date="ngModel">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div [hidden]="!date.pristine" class="alert alert-danger">Phone number is required</div>
+          </div>
+
+          
+
           <button type="submit" [disabled]="!userForm.form.valid" class="btn btn-info">Submit</button>
         </form>
       </div>
