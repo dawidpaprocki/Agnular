@@ -1,11 +1,11 @@
 package application.controllers;
 
+import application.AppExceptionHandler;
+import application.Exception2;
 import application.entities.User;
 import application.entities.UserDTO;
 import application.repositories.UserRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -20,7 +20,7 @@ public class UserController {
   private final UserRepository userRepository;
   private DateConverter dateConverter;
 
-  public UserController(UserRepository userRepository, DateConverter dateConverter ) {
+  public UserController(UserRepository userRepository, DateConverter dateConverter) {
     this.userRepository = userRepository;
     this.dateConverter = dateConverter;
   }
@@ -28,6 +28,16 @@ public class UserController {
   @GetMapping("/users")
   public List<User> getUsers() {
     return (List<User>) userRepository.findAll();
+  }
+
+  @GetMapping("/users/{id}")
+  public User getUser(@PathVariable Long id) {
+
+    try {
+      return userRepository.findById(id).get();
+    } catch (Exception e) {
+      throw new Exception2("działa");
+    }
   }
 
   @GetMapping("/usersMap")
@@ -46,11 +56,11 @@ public class UserController {
   void addUser(@RequestBody UserDTO user) {
     String startContactDateToConvert = user.getStartContact();
     User userToDb = new User();
-    BeanUtils.copyProperties(user,userToDb,"StartContact");
+    BeanUtils.copyProperties(user, userToDb, "StartContact");
     try {
       userToDb.setStartContact(
-       dateConverter.convertDate(startContactDateToConvert)
-     );
+        dateConverter.convertDate(startContactDateToConvert)
+      );
     } catch (ParseException e) {
       e.printStackTrace();
     }
