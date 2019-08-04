@@ -1,5 +1,11 @@
 export class User {
-    id: string;
-    name: string;
-    email: string;
+  id: number;
+  name: string;
+  lastName: string;
+  email: string;
+  StartContact: string;
+  EndContact: string;
+  PESEL: number;
+  PhoneNumber: number;
+
 }

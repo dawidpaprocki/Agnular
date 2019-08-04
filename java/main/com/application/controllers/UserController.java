@@ -2,12 +2,10 @@ package application.controllers;
 
 import application.entities.User;
 import application.repositories.UserRepository;
-
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 @RestController
@@ -31,10 +29,12 @@ public class UserController {
     Map<String, String> collect = all.stream().collect(Collectors.toMap(user -> user.getName(), user -> user.getEmail()));
     return collect;
   }
+
   @DeleteMapping("/delete/{id}")
-  void deleteUser(@PathVariable Long id){
+  void deleteUser(@PathVariable Long id) {
     userRepository.deleteById(id);
   }
+
   @PostMapping("/users")
   void addUser(@RequestBody User user) {
     userRepository.save(user);
