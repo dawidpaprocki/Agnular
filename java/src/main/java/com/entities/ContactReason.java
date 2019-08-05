@@ -11,4 +11,5 @@ import javax.persistence.Entity;
 @Data
 @NoArgsConstructor
 public class ContactReason  extends BaseModel{
+  private String text;
 }

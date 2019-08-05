@@ -31,7 +31,6 @@ public class UserController {
 
   @GetMapping("/users/{id}")
   public User getUser(@PathVariable Long id) {
-
     try {
       return userRepository.findById(id).get();
     } catch (Exception e) {
