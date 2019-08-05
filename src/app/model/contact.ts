@@ -7,5 +7,4 @@ export class Contact {
   name: string;
   patient: Patient;
   contactReason: ContactReason;
-  contactForm: ContactForm;
 }

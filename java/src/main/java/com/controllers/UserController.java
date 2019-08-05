@@ -31,6 +31,7 @@ public class UserController {
 
   @GetMapping("/users/{id}")
   public User getUser(@PathVariable Long id) {
+
     try {
       return userRepository.findById(id).get();
     } catch (Exception e) {
@@ -41,9 +42,10 @@ public class UserController {
   @GetMapping("/usersMap")
   public Map<String, String> getUsers2() {
     List<User> all = userRepository.findAll();
-    Map<String, String> collect = all.stream().collect(Collectors.toMap(user -> user.getName(), user -> user.getEmail()));
+    Map<String, String> collect = all.stream().collect(Collectors.toMap(user -> user.getPrivileges().getName(), user -> user.getName()));
     return collect;
   }
+
 
   @DeleteMapping("/delete/{id}")
   void deleteUser(@PathVariable Long id) {
@@ -51,19 +53,7 @@ public class UserController {
   }
 
   @PostMapping("/users")
-  void addUser(@RequestBody UserDTO user) {
-    String startContactDateToConvert = user.getStartContact();
-    User userToDb = new User();
-    BeanUtils.copyProperties(user, userToDb, "StartContact");
-    try {
-      userToDb.setStartContact(
-        dateConverter.convertDate(startContactDateToConvert)
-      );
-    } catch (ParseException e) {
-      e.printStackTrace();
-    }
-
-
-    userRepository.save(userToDb);
+  void addUser(@RequestBody User user) {
+    userRepository.save(user);
   }
 }

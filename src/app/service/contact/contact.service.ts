@@ -1,7 +1,5 @@
-import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {User} from '../../model/user';
 import {Contact} from '../../model/contact';
 import {HttpConfigService} from '../httppConfig/http-config.service';
 
@@ -16,7 +14,12 @@ export class ContactService {
     return this.httpConfig.http.get<Contact[]>(this.httpConfig.Url + '/contacts');
   }
 
+  public save(contact: Contact) {
+    return this.httpConfig.http.post<Contact>(this.httpConfig.Url, contact);
+  }
+
   public delete(id: number) {
     return this.httpConfig.http.delete(this.httpConfig.Url + '/contact/delete/' + id);
   }
+
 }

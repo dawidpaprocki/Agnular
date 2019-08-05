@@ -13,6 +13,7 @@ import {MatFormFieldModule, MatInputModule, MatNativeDateModule} from '@angular/
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
 import { ContactComponent } from './contact/contact.component';
+import { ContactFormComponent } from './contacts-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ContactComponent } from './contact/contact.component';
     UserMapListComponent,
     UserFormComponent,
     UserMapListComponent,
-    ContactComponent
+    ContactComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 @EqualsAndHashCode(callSuper = true)
@@ -12,10 +15,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 public class User extends BaseModel {
-   private String LastName;
-   private Long PESEL;
-   private Long PhoneNumber;
-   private String Email;
-   private Date StartContact;
-   private Date EndContact;
+  @ManyToOne(cascade = {CascadeType.ALL})
+  @JoinColumn(name = "privilegesId")
+  private Privileges privileges;
 }
