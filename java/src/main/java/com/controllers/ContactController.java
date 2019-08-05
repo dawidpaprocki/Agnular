@@ -2,10 +2,7 @@ package com.controllers;
 
 import com.entities.Contact;
 import com.repositories.ContactRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,13 +18,18 @@ public class ContactController {
   public List<Contact> getContacts(){
    return contactRepository.findAll();
   }
+
   @GetMapping("/contacts/{id}")
   public List<Contact> getContactsForPatient(@PathVariable Long id){
     return contactRepository.findContactByPatientId(id);
   }
 
-  public Contact addContact(Contact contact){
-    return contactRepository.save(contact);
+  @PostMapping("/contacts")
+  void  addContact(@RequestBody Contact contact){
+     contactRepository.save(contact);
   }
-
+  @DeleteMapping("/contacts/{id}")
+  void  addContact(@PathVariable Long id){
+    contactRepository.deleteById(id);
+  }
 }
