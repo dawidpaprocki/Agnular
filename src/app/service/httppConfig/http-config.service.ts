@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class HttpConfigService {
   private _Url = 'http://localhost:8080';
-  private _http;
+  private _http: HttpClient;
 
   constructor(private htttpClient: HttpClient) {
     this._http = htttpClient;

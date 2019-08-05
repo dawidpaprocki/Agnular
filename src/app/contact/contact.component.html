@@ -5,15 +5,16 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">delete</th>
+        <th scope="col">contact reason</th>
+        <th scope="col">patient name</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let contact of contacts">
         <td>{{ contact.id }}</td>
         <td>{{ contact.name }}</td>
-        <td>{{ contact.patient }}</td>
+        <td>{{ contact.contactReason.name}}</td>
+        <td>{{ contact.patient.name}}</td>
         <button id="remove" (click)="delete(contact)">Delete</button>
       </tr>
       </tbody>

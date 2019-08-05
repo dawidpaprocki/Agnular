@@ -19,10 +19,6 @@ public class Contact extends BaseModel{
   private ContactReason contactReason;
 
   @ManyToOne
-  @JoinColumn(name = "ContactFormId", nullable = false)
-  private ContactForm contactForm;
-
-  @ManyToOne
   @JoinColumn(name = "PatientId", nullable = false)
   private Patient patient;
 }

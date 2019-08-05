@@ -11,6 +11,7 @@ export class UserService {
   }
 
   public findAll(): Observable<User[]> {
+
     return this.httpConfig.http.get<User[]>(this.httpConfig.Url + '/users');
   }
 

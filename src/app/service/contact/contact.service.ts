@@ -13,7 +13,7 @@ export class ContactService {
   }
 
   public findAll(): Observable<Contact[]> {
-    return this.httpConfig.http.get<Contact[]>('http://localhost:8080/users');
+    return this.httpConfig.http.get<Contact[]>(this.httpConfig.Url + '/contacts');
   }
 
   public delete(id: number) {
