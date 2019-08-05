@@ -36,7 +36,7 @@
           </div>
 
           <div class="form-group">
-            <label for="phoneNumber">PESEL</label>
+            <label for="phoneNumber">Phone number</label>
             <input type="text" [(ngModel)]="user.phoneNumber" class="form-control" id="phoneNumber" name="phoneNumber"
                    placeholder="Enter your phone number number"
                    required #phoneNumber="ngModel">
@@ -45,18 +45,28 @@
 
           <div class="form-group">
             <mat-form-field>
-              <input matInput  [(ngModel)]="user.startContact" [matDatepicker]="picker" id="date" name="date"
+              <input matInput  [(ngModel)]="user.startContact" [matDatepicker]="startDatePicker" id="startDate" name="startDate"
                      placeholder="Choose a date"
-                     required #date="ngModel">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+                     required #startDate="ngModel">
+              <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+              <mat-datepicker #startDatePicker></mat-datepicker>
             </mat-form-field>
-            <div [hidden]="!date.pristine" class="alert alert-danger">Phone number is required</div>
+            <div [hidden]="!startDate.pristine" class="alert alert-danger">start date is required</div>
           </div>
-
-          
-
           <button type="submit" [disabled]="!userForm.form.valid" class="btn btn-info">Submit</button>
+
+          <div class="form-group">
+            <mat-form-field>
+              <input matInput  [(ngModel)]="user.endContact" [matDatepicker]="endDatepicker" id="endDate" name="endDate"
+                     placeholder="Choose a date"
+                     required #endDate="ngModel">
+              <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+              <mat-datepicker #endDatepicker></mat-datepicker>
+            </mat-form-field>
+            <div [hidden]="!endDate.pristine" class="alert alert-danger">end date is required</div>
+          </div>
+          <button type="submit" [disabled]="!userForm.form.valid" class="btn btn-info">Submit</button>
+
         </form>
       </div>
     </div>

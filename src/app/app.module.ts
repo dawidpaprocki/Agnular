@@ -6,12 +6,13 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {UserListComponent} from './user-list/user-list.component';
 import {UserFormComponent} from './user-form/user-form.component';
-import {UserService} from './service/user.service';
+import {UserService} from './service/user/user.service';
 import {UserMapListComponent} from './user-map-list/user-map-list.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DatePipe } from '@angular/common';
     UserListComponent,
     UserMapListComponent,
     UserFormComponent,
-    UserMapListComponent
+    UserMapListComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,6 @@ import { DatePipe } from '@angular/common';
     MatInputModule,
     MatNativeDateModule,
     BrowserAnimationsModule
-
   ],
   providers: [UserService, DatePipe],
   bootstrap: [AppComponent]

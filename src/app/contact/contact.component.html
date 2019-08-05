@@ -12,9 +12,9 @@
       <tbody>
       <tr *ngFor="let contact of contacts">
         <td>{{ contact.id }}</td>
-        <td>{{ contact. }}</td>
-        <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
-        <button id="remove" (click)="delete(user)">Delete</button>
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.patient }}</td>
+        <button id="remove" (click)="delete(contact)">Delete</button>
       </tr>
       </tbody>
     </table>

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {User} from '../model/user';
-import {Contact} from '../model/contact';
-import {HttpConfigService} from './httppConfig/http-config.service';
+import {User} from '../../model/user';
+import {Contact} from '../../model/contact';
+import {HttpConfigService} from '../httppConfig/http-config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +13,10 @@ export class ContactService {
   }
 
   public findAll(): Observable<Contact[]> {
-    return this.httpConfig.http.get<Contact[]>(this.httpConfig.usersUrl);
+    return this.httpConfig.http.get<Contact[]>('http://localhost:8080/users');
   }
 
   public delete(id: number) {
-    return this.httpConfig.http.delete(this.httpConfig.usersUrl + '/contact/delete/' + id);
+    return this.httpConfig.http.delete(this.httpConfig.Url + '/contact/delete/' + id);
   }
 }

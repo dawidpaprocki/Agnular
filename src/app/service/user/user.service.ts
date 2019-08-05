@@ -1,30 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from '../model/user';
+import { User } from '../../model/user';
 import { Observable } from 'rxjs';
 import {catchError} from 'rxjs/operators';
+import {HttpConfigService} from '../httppConfig/http-config.service';
 
 @Injectable()
 export class UserService {
-
-  private usersUrl: string;
-
-  constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8080/users';
+  constructor(private httpConfig: HttpConfigService) {
   }
 
   public findAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl);
+    return this.httpConfig.http.get<User[]>(this.httpConfig.Url + '/users');
   }
 
   public findAllMap(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:8080/usersMap');
+    return this.httpConfig.http.get<User[]>(this.httpConfig.Url + 'users/usersMap');
   }
 
   public save(user: User) {
-    return this.http.post<User>(this.usersUrl, user);
+    return this.httpConfig.http.post<User>(this.httpConfig.Url, user);
   }
   public delete(id: number) {
-    return this.http.delete('http://localhost:8080/delete/' + id);
+    return this.httpConfig.http.delete(this.httpConfig.Url + 'user/delete/' + id);
   }
 }

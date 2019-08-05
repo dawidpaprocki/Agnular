@@ -24,4 +24,8 @@ public class ContactController {
     return contactRepository.findContactByPatientId(id);
   }
 
+  public Contact addContact(Contact contact){
+    return contactRepository.save(contact);
+  }
+
 }

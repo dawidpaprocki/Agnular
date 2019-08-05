@@ -5,17 +5,18 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpConfigService {
-  private _usersUrl: 'http://localhost:8080/users';
-  private _http: HttpClient;
+  private _Url = 'http://localhost:8080';
+  private _http;
 
-  constructor() {
+  constructor(private htttpClient: HttpClient) {
+    this._http = htttpClient;
   }
 
-  get usersUrl(): 'http://localhost:8080/users' {
-    return this._usersUrl;
+  get Url(): string {
+    return this._Url;
   }
 
-  get http(): HttpClient {
+  get http() {
     return this._http;
   }
 }
