@@ -1,12 +1,11 @@
-package application.controllers;
+package com.controllers;
 
-import application.AppExceptionHandler;
-import application.Exception2;
-import application.entities.User;
-import application.entities.UserDTO;
-import application.repositories.UserRepository;
+import com.entities.User;
+import com.entities.UserDTO;
+import com.CustomException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
+import com.repositories.UserRepository;
 
 import java.text.ParseException;
 import java.util.List;
@@ -17,7 +16,7 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
-  private final UserRepository userRepository;
+  private UserRepository userRepository;
   private DateConverter dateConverter;
 
   public UserController(UserRepository userRepository, DateConverter dateConverter) {
@@ -36,7 +35,7 @@ public class UserController {
     try {
       return userRepository.findById(id).get();
     } catch (Exception e) {
-      throw new Exception2("działa");
+      throw new CustomException("działa");
     }
   }
 

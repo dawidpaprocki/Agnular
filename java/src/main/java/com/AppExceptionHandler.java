@@ -1,4 +1,4 @@
-package application;
+package com;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -10,10 +10,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 
-  @ExceptionHandler(value = {Exception2.class})
-  public ResponseEntity<Object> handleAnyException(Exception2 ex, String Message) {
+  @ExceptionHandler(value = {CustomException.class})
+  public ResponseEntity<Object> handleAnyException(CustomException ex, String Message) {
     return new ResponseEntity<>(
-     ex.getMessage() + " : " + Message, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR
+    Message, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR
     );
   }
 }

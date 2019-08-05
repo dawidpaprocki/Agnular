@@ -1,4 +1,4 @@
-package application.entities;
+package com.entities;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,5 +10,6 @@ import javax.persistence.Entity;
 @Entity
 @Data
 @NoArgsConstructor
-public class Tag extends BaseModel {
+public class MedicalCarer extends BaseModel {
+   private String LastName;
 }

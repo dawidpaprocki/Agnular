@@ -1,4 +1,4 @@
-package application.entities;
+package com.entities;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,5 +10,5 @@ import javax.persistence.Entity;
 @Entity
 @Data
 @NoArgsConstructor
-public class Privileges extends BaseModel {
+public class ContactReason  extends BaseModel{
 }
