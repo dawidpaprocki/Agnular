@@ -38,11 +38,16 @@ public class MedicalCarerPatientController {
   }
 
   @DeleteMapping("/medicalCarerPatient/delete/{id}")
-  void deleteUser(@PathVariable Long id) {
+  void deleteMedicalCarerPatient(@PathVariable Long id) {
     medicalCarerPatientRepository.deleteById(id);
   }
 
-  @PostMapping("/addmedicalCarerPatient")
-  void addUser(@RequestBody MedicalCarerPatient medicalCarerPatient) {medicalCarerPatientRepository.save(medicalCarerPatient);
+  @PostMapping("/addMedicalCarerPatient")
+  void addMedicalCarerPatient(@RequestBody MedicalCarerPatient medicalCarerPatient) {
+    medicalCarerPatientRepository.save(medicalCarerPatient);
+  }
+  @PutMapping("/changeMedicalCarerPatient")
+  void changeMedicalCarerPatient(@RequestBody MedicalCarerPatient medicalCarerPatient) {
+    medicalCarerPatientRepository.save(medicalCarerPatient);
   }
 }

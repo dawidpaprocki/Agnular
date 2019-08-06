@@ -14,6 +14,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
 import { ContactComponent } from './contact/contact.component';
 import { ContactFormComponent } from './contacts-form/contact-form.component';
+import { MedicalCarerPatientComponent } from './medical-carer-patient/medical-carer-patient.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ContactFormComponent } from './contacts-form/contact-form.component';
     UserFormComponent,
     UserMapListComponent,
     ContactComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    MedicalCarerPatientComponent
   ],
   imports: [
     BrowserModule,
