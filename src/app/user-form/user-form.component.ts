@@ -20,7 +20,7 @@ export class UserFormComponent {
   }
 
   onSubmit() {
-   this.user.startContact =  this.datePipe.transform(this.user.startContact, 'dd-MM-yyyy');
+   this.user.startContact = this.datePipe.transform(this.user.startContact, 'dd-MM-yyyy');
    this.userService.save(this.user).subscribe(result => this.gotoUserList());
   }
 

@@ -1,13 +1,10 @@
 package com.controllers;
 
-import com.entities.User;
-import com.entities.UserDTO;
 import com.CustomException;
-import org.springframework.beans.BeanUtils;
-import org.springframework.web.bind.annotation.*;
+import com.entities.User;
 import com.repositories.UserRepository;
+import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -39,7 +36,7 @@ public class UserController {
     }
   }
 
-  @GetMapping("/usersMap")
+  @GetMapping("/users/map")
   public Map<String, String> getUsers2() {
     List<User> all = userRepository.findAll();
     Map<String, String> collect = all.stream().collect(Collectors.toMap(user -> user.getPrivileges().getName(), user -> user.getName()));
@@ -47,12 +44,12 @@ public class UserController {
   }
 
 
-  @DeleteMapping("/delete/{id}")
+  @DeleteMapping("/user/delete/{id}")
   void deleteUser(@PathVariable Long id) {
     userRepository.deleteById(id);
   }
 
-  @PostMapping("/users")
+  @PostMapping("/adduser")
   void addUser(@RequestBody User user) {
     userRepository.save(user);
   }

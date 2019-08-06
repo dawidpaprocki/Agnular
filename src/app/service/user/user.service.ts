@@ -16,13 +16,15 @@ export class UserService {
   }
 
   public findAllMap(): Observable<User[]> {
-    return this.httpConfig.http.get<User[]>(this.httpConfig.Url + 'users/usersMap');
+    return this.httpConfig.http.get<User[]>(this.httpConfig.Url + '/users/map');
   }
 
   public save(user: User) {
-    return this.httpConfig.http.post<User>(this.httpConfig.Url, user);
+    const dwa = this.httpConfig.Url + '/adduser';
+    return this.httpConfig.http.post<User>(this.httpConfig.Url + '/adduser', user);
   }
   public delete(id: number) {
-    return this.httpConfig.http.delete(this.httpConfig.Url + 'user/delete/' + id);
+    const k = this.httpConfig.Url + '/user/delete/' + id;
+    return this.httpConfig.http.delete(k);
   }
 }

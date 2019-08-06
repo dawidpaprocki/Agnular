@@ -2,37 +2,31 @@
   <div class="col-sm-6">
     <div class="card my-5">
       <div class="card-body">
-        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" [(ngModel)]="contact.name" class="form-control" id="name" name="name"
                    placeholder="Enter your name"
                    required #name="ngModel">
-            <div [hidden]="!email.pristine" class="alert alert-danger">Name is required</div>
+            <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
           </div>
-
           <div class="form-group">
-            <label for="lastName">Last name</label>
-            <input type="text" [(ngModel)]="user.lastName" class="form-control" id="lastName" name="lastName"
-                   placeholder="Enter your last name"
-                   required #lastName="ngModel">
-            <div [hidden]="!lastName.pristine" class="alert alert-danger">Last name is required</div>
+            <label for="patient">Patient</label>
+            <select type="text" [(ngModel)]="contact.patient" class="form-control" id="patient" name="patient"
+                    required #patient="ngModel">
+              <option *ngFor="let patient of patients" [ngValue]="patient">{{patient.name}}</option>
+            </select>
+            <div [hidden]="!patient.pristine" class="alert alert-danger">patient is required</div>
           </div>
-
-
-
           <div class="form-group">
-            <mat-form-field>
-              <input matInput  [(ngModel)]="user.endContact" [matDatepicker]="endDatepicker" id="endDate" name="endDate"
-                     placeholder="Choose a date"
-                     required #endDate="ngModel">
-              <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
-              <mat-datepicker #endDatepicker></mat-datepicker>
-            </mat-form-field>
-            <div [hidden]="!endDate.pristine" class="alert alert-danger">end date is required</div>
+            <label for="patient">Patient</label>
+            <select type="text" [(ngModel)]="contact.patient" class="form-control" id="patient" name="patient"
+                    required #patient="ngModel">
+              <option *ngFor="let patient of patients" [ngValue]="patient">{{patient.name}}</option>
+            </select>
+            <div [hidden]="!patient.pristine" class="alert alert-danger">patient is required</div>
           </div>
-          <button type="submit" [disabled]="!userForm.form.valid" class="btn btn-info">Submit</button>
-
+          <button type="submit" [disabled]="!contactForm.form.valid" class="btn btn-info">Submit</button>
         </form>
       </div>
     </div>

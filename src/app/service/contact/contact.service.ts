@@ -15,7 +15,7 @@ export class ContactService {
   }
 
   public save(contact: Contact) {
-    return this.httpConfig.http.post<Contact>(this.httpConfig.Url, contact);
+    return this.httpConfig.http.post<Contact>(this.httpConfig.Url + '/addcontact', contact);
   }
 
   public delete(id: number) {

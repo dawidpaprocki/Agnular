@@ -9,9 +9,9 @@ import {ContactFormComponent} from './contacts-form/contact-form.component';
 const routes: Routes = [
   { path: 'users', component: UserListComponent },
   { path: 'adduser', component: UserFormComponent },
-  { path: 'usersMap', component: UserMapListComponent },
+  { path: 'users/map', component: UserMapListComponent },
   { path: 'contacts', component: ContactComponent },
-  { path: 'addContacts', component: ContactFormComponent }
+  { path: 'addcontact', component: ContactFormComponent }
 
 ];
 
