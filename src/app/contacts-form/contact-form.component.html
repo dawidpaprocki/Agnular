@@ -19,12 +19,12 @@
             <div [hidden]="!patient.pristine" class="alert alert-danger">patient is required</div>
           </div>
           <div class="form-group">
-            <label for="patient">Patient</label>
-            <select type="text" [(ngModel)]="contact.patient" class="form-control" id="patient" name="patient"
-                    required #patient="ngModel">
-              <option *ngFor="let patient of patients" [ngValue]="patient">{{patient.name}}</option>
+            <label for="patient">Contact Reason</label>
+            <select type="text" [(ngModel)]="contact.contactReason" class="form-control" id="contactReason" name="contactReason"
+                    required #contactReason="ngModel">
+              <option *ngFor="let contactReason of contactReasons" [ngValue]="contactReason">{{contactReason.name}}</option>
             </select>
-            <div [hidden]="!patient.pristine" class="alert alert-danger">patient is required</div>
+            <div [hidden]="!contactReason.pristine" class="alert alert-danger">Contact reason is required</div>
           </div>
           <button type="submit" [disabled]="!contactForm.form.valid" class="btn btn-info">Submit</button>
         </form>

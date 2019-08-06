@@ -6,6 +6,7 @@ import {Patient} from '../model/patient';
 import {PatientService} from '../service/patient/patient.service';
 import {NgForm} from '@angular/forms';
 import {ContactReason} from '../model/contactReason';
+import {ContactReasonService} from '../service/contactReason/contact-reason.service';
 
 @Component({
   selector: 'app-contacts-form',
@@ -15,11 +16,11 @@ import {ContactReason} from '../model/contactReason';
 export class ContactFormComponent implements OnInit {
 
   contact: Contact;
-  contactReason: ContactReason[];
+  contactReasons: ContactReason[];
   patients: Patient[];
 
   constructor(private route: ActivatedRoute, private router: Router, private contactService: ContactService,
-              private patientService: PatientService,  ) {
+              private patientService: PatientService, private contactReasonService: ContactReasonService ) {
     this.contact = new Contact();
   }
 
@@ -36,6 +37,9 @@ export class ContactFormComponent implements OnInit {
   ngOnInit() {
     this.patientService.findAll().subscribe(data => {
       this.patients = data;
+    });
+    this.contactReasonService.findAll().subscribe(data => {
+      this.contactReasons = data;
     });
 
   }
