@@ -82,7 +82,6 @@ public class PatientControllerTest {
     patientController.getPatient(1L);
   }
 
-
   @Test
   public void getAllPatientTest() {
     // given
@@ -97,4 +96,7 @@ public class PatientControllerTest {
     // then
     assertEquals(2, testPatientList.size());
   }
+
+
+
 }
