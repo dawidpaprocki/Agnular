@@ -1,4 +1,3 @@
-package main;
 
 import com.AppExceptionHandler;
 import com.CustomException;
