@@ -1,9 +1,8 @@
 import com.CustomException;
-import com.controllers.PatientController;
-import com.entities.Patient;
-import com.repositories.PatientRepository;
+import com.patient.PatientController;
+import com.patient.Patient;
+import com.patient.PatientRepository;
 import com.tools.PropertiesReader;
-import org.hibernate.mapping.Any;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,9 +11,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Arrays;
@@ -23,7 +19,6 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringJUnit4ClassRunner.class)
